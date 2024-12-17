@@ -6,15 +6,15 @@ import Logo from "../../public/images/logo/logoT.png";
 
 export default function MainSection() {
   return (
-    <Flex justify="between" direction="column" mb="9">
-      <Image src={Logo} alt="logo" width={120} />
+    <Flex justify="between" direction="column" style={{marginBottom: "120px"}}>
+      <Image src={Logo} alt="logo" width={150} />
       <Flex
         gapX="5"
         justify="center"
         align="center"
         style={{ color: "var(--slate-1)" }}
       >
-        <Heading style={{ fontSize: "100px" }}>10*</Heading>
+        <Heading style={{ fontSize: "120px" }}>10*</Heading>
         <Box>
           <Heading style={{ fontSize: "50px" }}>London</Heading>
           <Text mt="3" style={{ display: "inline-block" }} weight="bold">
