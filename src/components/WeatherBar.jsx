@@ -1,5 +1,6 @@
 import { Box } from "@radix-ui/themes";
 import SearchBar from "./SearchBar";
+import WeatherDetails from "./WeatherDetails";
 
 export default function WeatherBar() {
   return (
@@ -17,6 +18,7 @@ export default function WeatherBar() {
       }}
     >
       <SearchBar />
+      <WeatherDetails/>
     </Box>
   );
 }

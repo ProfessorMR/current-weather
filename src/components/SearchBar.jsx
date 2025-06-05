@@ -22,7 +22,6 @@ export default function SearchBar() {
             color: "#FFF",
             background: "rgba(255, 255, 255, 0.1)",
             border: "none",
-            borderBottom: "1px solid white",
             outline: "none",
             width: "100%",
             paddingRight: "30px",
