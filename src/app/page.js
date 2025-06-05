@@ -14,7 +14,7 @@ export default function Home() {
       }}
     >
       <Container>
-        <Flex style={{ minHeight: "100vh" }}>
+        <Flex style={{ minHeight: "100vh" }} justify={"between"}>
           <MainSection />
           <WeatherBar />
         </Flex>

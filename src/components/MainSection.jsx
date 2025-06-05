@@ -6,7 +6,11 @@ import Logo from "../../public/images/logo/logoT.png";
 
 export default function MainSection() {
   return (
-    <Flex justify="between" direction="column" style={{marginBottom: "120px"}}>
+    <Flex
+      justify="between"
+      direction="column"
+      style={{ marginBottom: "120px" }}
+    >
       <Image src={Logo} alt="logo" width={150} />
       <Flex
         gapX="5"
@@ -14,10 +18,12 @@ export default function MainSection() {
         align="center"
         style={{ color: "var(--slate-1)" }}
       >
-        <Heading style={{ fontSize: "120px" }}>10*</Heading>
+        <Heading style={{ fontSize: "120px" }}>10°</Heading>
         <Box>
-          <Heading style={{ fontSize: "50px" }}>London</Heading>
-          <Text mt="3" style={{ display: "inline-block" }} weight="bold">
+          <Heading style={{ fontSize: "50px" }} weight="regular">
+            London
+          </Heading>
+          <Text mt="3" style={{ display: "inline-block" }} weight="regular">
             11:51 - Tue, 17 Dec 2024
           </Text>
         </Box>
