@@ -1,6 +1,7 @@
 import { Box } from "@radix-ui/themes";
 import SearchBar from "./SearchBar";
 import WeatherDetails from "./WeatherDetails";
+import WeatherForecast from "./WeatherForecast";
 
 export default function WeatherBar() {
   return (
@@ -15,10 +16,24 @@ export default function WeatherBar() {
         height: "100vh",
         width: "500px",
         padding: "20px 60px",
+        overflowY: "auto",
+        scrollbarWidth: "thin",
+        scrollbarColor: "rgba(255, 255, 255, 0.3) transparent",
+        "&::-webkit-scrollbar": {
+          width: "6px",
+        },
+        "&::-webkit-scrollbar-track": {
+          background: "transparent",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          backgroundColor: "rgba(255, 255, 255, 0.3)",
+          borderRadius: "3px",
+        },
       }}
     >
       <SearchBar />
-      <WeatherDetails/>
+      <WeatherDetails />
+      <WeatherForecast />
     </Box>
   );
 }
