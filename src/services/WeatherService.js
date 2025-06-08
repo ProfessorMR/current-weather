@@ -19,3 +19,16 @@ export function useCurrentWeather(city) {
     currentError: error,
   };
 }
+
+export function useForecastWeather(city) {
+  const { data, error, isLoading } = useSWR(
+    `${BASE_URL}/forecast.json?q=${city}&days=1&key=${API_KEY}`,
+    fetcher
+  );
+
+  return {
+    forecastData: data,
+    forecastLoading: isLoading,
+    forecastError: error,
+  };
+}
