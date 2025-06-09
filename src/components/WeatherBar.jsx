@@ -8,9 +8,9 @@ export default function WeatherBar() {
   return (
     <Box
       style={{
-        background: "rgba( 255, 255, 255, .1 );",
+        background: "rgba( 255, 255, 255, .1 )",
         borderLeft: "6px solid rgba(255, 255, 255,.2)",
-        backdropFilter: "blur( 20px );",
+        backdropFilter: "blur( 20px )",
         position: "fixed",
         right: 0,
         top: 0,
@@ -20,17 +20,8 @@ export default function WeatherBar() {
         overflowY: "auto",
         scrollbarWidth: "thin",
         scrollbarColor: "rgba(255, 255, 255, 0.3) transparent",
-        "&::-webkit-scrollbar": {
-          width: "6px",
-        },
-        "&::-webkit-scrollbar-track": {
-          background: "transparent",
-        },
-        "&::-webkit-scrollbar-thumb": {
-          backgroundColor: "rgba(255, 255, 255, 0.3)",
-          borderRadius: "3px",
-        },
       }}
+      className="custom-scrollbar"
     >
       <SearchBar />
       <WeatherDetails />
