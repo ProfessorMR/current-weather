@@ -1,4 +1,5 @@
 import { Heading } from "@radix-ui/themes";
+
 import WeatherForecastDetail from "./WeatherForecastDetail";
 
 export default function WeatherForecast() {

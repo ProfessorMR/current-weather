@@ -1,4 +1,5 @@
 import { Box } from "@radix-ui/themes";
+
 import SearchBar from "./SearchBar";
 import WeatherDetails from "./WeatherDetails";
 import WeatherForecast from "./WeatherForecast";

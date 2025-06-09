@@ -1,9 +1,11 @@
 "use client";
-import Image from "next/image";
 import { Box, Flex, Heading, Text } from "@radix-ui/themes";
 import { Icon } from "@iconify/react";
 import { useCurrentWeather } from "@/services/WeatherService";
 import { useEffect, useState } from "react";
+import useWeatherStore from "../store/weatherStore";
+
+import Image from "next/image";
 
 import Logo from "../../public/images/logo/logoT.png";
 
@@ -66,11 +68,10 @@ const LoadingSkeleton = () => {
 };
 
 export default function MainSection() {
-  const [city, setCity] = useState(null);
   const [isLocationLoading, setIsLocationLoading] = useState(true);
-  const { currrentData, currentLoading, currentError } = useCurrentWeather(
-    city || "Tehran"
-  );
+  const selectedCity = useWeatherStore((state) => state.selectedCity);
+  const { currrentData, currentLoading, currentError } =
+    useCurrentWeather(selectedCity);
 
   useEffect(() => {
     const getLocation = () => {
@@ -83,23 +84,20 @@ export default function MainSection() {
               );
               const data = await response.json();
               if (data.city) {
-                setCity(data.city);
+                useWeatherStore.getState().setSelectedCity(data.city);
               }
             } catch (error) {
               console.error("Error fetching city name:", error);
-              setCity("Tehran");
             } finally {
               setIsLocationLoading(false);
             }
           },
-          (error) => {
+          () => {
             console.log("Location access denied, using default city");
-            setCity("Tehran");
             setIsLocationLoading(false);
           }
         );
       } else {
-        setCity("Tehran");
         setIsLocationLoading(false);
       }
     };

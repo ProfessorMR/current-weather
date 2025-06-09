@@ -1,4 +1,5 @@
 import { Heading } from "@radix-ui/themes";
+
 import WeatherDetail from "./WeatherDetail";
 
 export default function WeatherDetails({ title = "Weather Details", items }) {

@@ -5,6 +5,8 @@ import { Icon } from "@iconify/react";
 import { Box, DataList, Text } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 
+import useWeatherStore from "../store/weatherStore";
+
 const LoadingSkeleton = () => {
   return (
     <DataList.Root
@@ -74,11 +76,10 @@ const LoadingSkeleton = () => {
 };
 
 export default function WeatherDetail() {
-  const [city, setCity] = useState(null);
   const [isLocationLoading, setIsLocationLoading] = useState(true);
-  const { currrentData, currentLoading, currentError } = useCurrentWeather(
-    city || "Tehran"
-  );
+  const selectedCity = useWeatherStore((state) => state.selectedCity);
+  const { currrentData, currentLoading, currentError } =
+    useCurrentWeather(selectedCity);
 
   useEffect(() => {
     const getLocation = () => {
@@ -91,23 +92,20 @@ export default function WeatherDetail() {
               );
               const data = await response.json();
               if (data.city) {
-                setCity(data.city);
+                useWeatherStore.getState().setSelectedCity(data.city);
               }
             } catch (error) {
               console.error("Error fetching city name:", error);
-              setCity("Tehran");
             } finally {
               setIsLocationLoading(false);
             }
           },
-          (error) => {
+          () => {
             console.log("Location access denied, using default city");
-            setCity("Tehran");
             setIsLocationLoading(false);
           }
         );
       } else {
-        setCity("Tehran");
         setIsLocationLoading(false);
       }
     };

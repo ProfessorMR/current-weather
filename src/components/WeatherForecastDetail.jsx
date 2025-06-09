@@ -5,6 +5,8 @@ import { Box, DataList, Text } from "@radix-ui/themes";
 import { useForecastWeather } from "../services/WeatherService";
 import { useEffect, useState } from "react";
 
+import useWeatherStore from "../store/weatherStore";
+
 const itemStyle = {
   display: "flex",
   justifyContent: "space-between",
@@ -93,11 +95,10 @@ const ForecastSkeleton = () => {
 };
 
 export default function WeatherForecastDetail() {
-  const [city, setCity] = useState(null);
   const [isLocationLoading, setIsLocationLoading] = useState(true);
-  const { forecastData, forecastLoading, forecastError } = useForecastWeather(
-    city || "Tehran"
-  );
+  const selectedCity = useWeatherStore((state) => state.selectedCity);
+  const { forecastData, forecastLoading, forecastError } =
+    useForecastWeather(selectedCity);
 
   useEffect(() => {
     const getLocation = () => {
@@ -110,23 +111,20 @@ export default function WeatherForecastDetail() {
               );
               const data = await response.json();
               if (data.city) {
-                setCity(data.city);
+                useWeatherStore.getState().setSelectedCity(data.city);
               }
             } catch (error) {
               console.error("Error fetching city name:", error);
-              setCity("Tehran");
             } finally {
               setIsLocationLoading(false);
             }
           },
           (error) => {
             console.log("Location access denied, using default city");
-            setCity("Tehran");
             setIsLocationLoading(false);
           }
         );
       } else {
-        setCity("Tehran");
         setIsLocationLoading(false);
       }
     };
@@ -199,7 +197,6 @@ export default function WeatherForecastDetail() {
   );
 }
 
-// تابع کمکی برای انتخاب آیکون مناسب بر اساس وضعیت آب و هوا
 function getWeatherIcon(condition) {
   const conditionLower = condition.toLowerCase();
   if (conditionLower.includes("sunny") || conditionLower.includes("clear")) {

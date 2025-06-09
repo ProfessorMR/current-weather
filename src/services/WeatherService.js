@@ -9,8 +9,11 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export function useCurrentWeather(city) {
   const { data, error, isLoading } = useSWR(
-    `${BASE_URL}/current.json?q=${city}&key=${API_KEY}`,
-    fetcher
+    city ? ["current", city] : null,
+    () =>
+      fetch(`${BASE_URL}/current.json?q=${city}&key=${API_KEY}`).then((res) =>
+        res.json()
+      )
   );
 
   return {
@@ -22,8 +25,11 @@ export function useCurrentWeather(city) {
 
 export function useForecastWeather(city) {
   const { data, error, isLoading } = useSWR(
-    `${BASE_URL}/forecast.json?q=${city}&days=1&key=${API_KEY}`,
-    fetcher
+    city ? ["forecast", city] : null,
+    () =>
+      fetch(`${BASE_URL}/forecast.json?q=${city}&days=1&key=${API_KEY}`).then(
+        (res) => res.json()
+      )
   );
 
   return {
