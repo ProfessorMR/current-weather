@@ -1,71 +1,15 @@
 "use client";
+
 import { Box, Flex, Heading, Text } from "@radix-ui/themes";
 import { Icon } from "@iconify/react";
 import { useCurrentWeather } from "@/services/WeatherService";
 import { useEffect, useState } from "react";
-import useWeatherStore from "../store/weatherStore";
 
+import LoadingSkeleton from "./skeletonLoading/MainSection";
+import useWeatherStore from "../store/weatherStore";
 import Image from "next/image";
 
 import Logo from "../../public/images/logo/logoT.png";
-
-const LoadingSkeleton = () => {
-  return (
-    <Flex
-      justify="between"
-      direction="column"
-      style={{ marginBottom: "120px" }}
-    >
-      <Image src={Logo} alt="logo" width={150} />
-      <Flex
-        gapX="5"
-        justify="center"
-        align="center"
-        style={{ color: "var(--slate-1)" }}
-      >
-        <div
-          className="skeleton"
-          style={{
-            width: "120px",
-            height: "120px",
-            background: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "4px",
-          }}
-        />
-        <Box>
-          <div
-            className="skeleton"
-            style={{
-              width: "150px",
-              height: "50px",
-              background: "rgba(255, 255, 255, 0.1)",
-              borderRadius: "4px",
-              marginBottom: "12px",
-            }}
-          />
-          <div
-            className="skeleton"
-            style={{
-              width: "200px",
-              height: "24px",
-              background: "rgba(255, 255, 255, 0.1)",
-              borderRadius: "4px",
-            }}
-          />
-        </Box>
-        <div
-          className="skeleton"
-          style={{
-            width: "60px",
-            height: "60px",
-            background: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "4px",
-          }}
-        />
-      </Flex>
-    </Flex>
-  );
-};
 
 export default function MainSection() {
   const [isLocationLoading, setIsLocationLoading] = useState(true);
@@ -125,11 +69,11 @@ export default function MainSection() {
         align="center"
         style={{ color: "var(--slate-1)" }}
       >
-        <Heading style={{ fontSize: "120px" }}>
+        <Heading style={{ fontSize: "80px" }}>
           {currrentData.current.temp_c}°
         </Heading>
         <Box>
-          <Heading style={{ fontSize: "50px" }} weight="regular">
+          <Heading style={{ fontSize: "40px" }} weight="regular">
             {currrentData.location.name}
           </Heading>
           <Text mt="3" style={{ display: "inline-block" }} weight="regular">

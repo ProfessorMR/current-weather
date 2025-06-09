@@ -1,4 +1,5 @@
 "use client";
+
 import { Box, Button, Flex, TextField } from "@radix-ui/themes";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
@@ -18,11 +19,27 @@ export default function SearchBar() {
     e.preventDefault();
     if (searchValue.trim()) {
       const city = searchValue.trim();
-      setSelectedCity(city);
+      try {
+        const response = await fetch(
+          `https://api.weatherapi.com/v1/current.json?q=${city}&key=8fd252d0e11c46548f7161607250606`
+        );
+        const data = await response.json();
 
-      await mutate(
-        (key) => typeof key === "string" && key.includes("weatherapi.com")
-      );
+        if (data.error) {
+          alert("City not found!");
+          setSelectedCity("Tehran");
+          setSearchValue("");
+        } else {
+          setSelectedCity(city);
+          await mutate(
+            (key) => typeof key === "string" && key.includes("weatherapi.com")
+          );
+        }
+      } catch (error) {
+        alert("Error receiving information");
+        setSelectedCity("Tehran");
+        setSearchValue("");
+      }
     }
   };
 
