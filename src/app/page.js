@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import MainSection from "@/components/MainSection";
 import WeatherBar from "@/components/WeatherBar";
+import LoadingScreen from "@/components/LoadingScreen";
 import useWeatherStore from "@/store/weatherStore";
 
 import sunnyBg from "@/assets/images/sunny.jpg";
@@ -16,8 +17,8 @@ import nightBg from "@/assets/images/night.jpg";
 
 export default function Home() {
   const selectedCity = useWeatherStore((state) => state.selectedCity);
-  const { currrentData } = useCurrentWeather(selectedCity);
-  const [backgroundImage, setBackgroundImage] = useState(sunnyBg.src);
+  const { currrentData, isLoading } = useCurrentWeather(selectedCity);
+  const [backgroundImage, setBackgroundImage] = useState(null);
 
   useEffect(() => {
     if (currrentData) {
@@ -40,6 +41,10 @@ export default function Home() {
       }
     }
   }, [currrentData]);
+
+  if (isLoading || !backgroundImage) {
+    return <LoadingScreen />;
+  }
 
   return (
     <main
