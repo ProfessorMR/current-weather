@@ -2,10 +2,8 @@
 
 import useSWR from "swr";
 
-const API_KEY = "8fd252d0e11c46548f7161607250606";
-const BASE_URL = "https://api.weatherapi.com/v1/";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export function useCurrentWeather(city) {
   const { data, error, isLoading } = useSWR(
