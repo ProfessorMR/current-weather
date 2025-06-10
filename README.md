@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# About The Project
+
+![current-weather](./public/images/desktop-preview.png)
+
+This project is a weather application that allows users to view real-time weather information. With this application, users can:
+
+- View current temperature in real-time
+- See detailed weather conditions updated instantly
+- Get weather forecasts for upcoming hours
+- Access important information such as humidity, wind speed, and atmospheric pressure with live updates
+
+The project is built using modern web technologies and features a beautiful, user-friendly interface that makes the experience enjoyable.
+
+## Built With
+
+The technology that I used in making this project:
+
+![Next js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=for-the-badge&logo=radixui&logoColor=white)
 
 ## Getting Started
 
-First, run the development server:
+This is an example of how you may give instructions on setting up your project locally. To get a local copy up and running follow these simple example steps.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This is an example of how to list things you need to use the software and how to install them.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+`npm install npm@latest -g`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Installation
 
-## Learn More
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-To learn more about Next.js, take a look at the following resources:
+**1.Get a free API Key at** https://www.weatherapi.com/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**2.Clone the repo**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`git clone https://github.com/ProfessorMR/current-weather.git`
 
-## Deploy on Vercel
+**3.Install NPM packages**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`npm i`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**4.Enter your API_KEY and BASE_URL in services/WeatherService.js**
+
+`const API_KEY = 'ENTER YOUR API';`
+`const BASE_URL = 'ENTER BASE URL';`
+
+## Contact
+
+Mohammad Ramaji: [instagram](https://instagram.com/mohammad._.rmj)
+Project Link: [currentWeather](https://github.com/ProfessorMR/current-weather.git)
+
+## Acknowledgments
+
+I would like to give credit to the original UI design that inspired this project:
+
+- [Original Design on templatemonster](https://weather-web-9uot.onrender.com/)
+
+Thank you for your amazing design and inspiration!
