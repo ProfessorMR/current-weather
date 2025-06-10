@@ -113,6 +113,7 @@ export default function WeatherForecastDetail() {
         flexDirection: "column",
         padding: "40px 0",
       }}
+      className="list-weather-details"
     >
       {filteredHours.map((hour, index) => (
         <DataList.Item key={index} style={itemStyle}>
@@ -122,18 +123,27 @@ export default function WeatherForecastDetail() {
               width="48"
               height="48"
               style={{ color: "white" }}
+              className="icon-weather-forecast"
             />
             <Box style={boxStyle} ml="5">
-              <Text weight="regular" size="4" style={{ color: "#fff" }}>
+              <Text
+                weight="regular"
+                size={{ initial: "2", md: "4" }}
+                style={{ color: "#fff" }}
+              >
                 {hour.time.split(" ")[1]}
               </Text>
-              <Text weight="regular" size="3" style={{ color: "#eee" }}>
+              <Text
+                weight="regular"
+                size={{ initial: "1", md: "3" }}
+                style={{ color: "#eee" }}
+              >
                 {hour.condition.text}
               </Text>
             </Box>
           </DataList.Label>
           <DataList.Value style={valueStyle}>
-            <Text size="6" mr="2">
+            <Text size={{ initial: "4", md: "6" }} mr="2">
               {hour.temp_c}°
             </Text>
           </DataList.Value>

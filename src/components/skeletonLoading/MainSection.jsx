@@ -1,6 +1,7 @@
 import { Box, Flex } from "@radix-ui/themes";
 
 import Image from "next/image";
+
 import Logo from "../../../public/images/logo/logoT.png";
 
 const LoadingSkeleton = () => {
@@ -9,6 +10,7 @@ const LoadingSkeleton = () => {
       justify="between"
       direction="column"
       style={{ marginBottom: "120px" }}
+      className="main-section-loading"
     >
       <Image src={Logo} alt="logo" width={150} />
       <Flex
@@ -17,8 +19,8 @@ const LoadingSkeleton = () => {
         align="center"
         style={{ color: "var(--slate-1)" }}
       >
-        <div
-          className="skeleton"
+        <Box
+          className="skeleton title-loading"
           style={{
             width: "120px",
             height: "120px",
@@ -27,8 +29,8 @@ const LoadingSkeleton = () => {
           }}
         />
         <Box>
-          <div
-            className="skeleton"
+          <Box
+            className="skeleton city-loading"
             style={{
               width: "150px",
               height: "50px",
@@ -37,8 +39,8 @@ const LoadingSkeleton = () => {
               marginBottom: "12px",
             }}
           />
-          <div
-            className="skeleton"
+          <Box
+            className="skeleton date-loading"
             style={{
               width: "200px",
               height: "24px",

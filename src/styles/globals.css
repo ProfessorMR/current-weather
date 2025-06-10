@@ -35,4 +35,81 @@ input::placeholder {
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 3px;
-} 
+}
+
+@media screen and (max-width: 1280px) {
+  .weather-bar {
+    width: 400px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .weather-page {
+    flex-direction: column;
+  }
+
+  .weather-bar {
+    position: static !important;
+    width: 100% !important;
+    border-left: none !important;
+    border-top: 6px solid rgba(255, 255, 255, 0.2);
+    padding-inline: 80px !important;
+  }
+
+  .main-section,
+  .main-section-loading {
+    margin-bottom: 40px !important;
+  }
+
+  .main-section-loading .title-loading {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .main-section-loading .city-loading {
+    height: 30px !important;
+    width: 120px !important;
+  }
+
+  .main-section-loading .date-loading {
+    height: 15px !important;
+    width: 200px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-section .logo-page {
+    width: 100px;
+    height: 100px;
+  }
+
+  .main-section .temp-main-section {
+    font-size: 60px !important;
+  }
+
+  .main-section .city-main-section {
+    font-size: 25px !important;
+  }
+
+  .main-section .date-main-section {
+    margin-top: 0 !important;
+  }
+
+  .title-weather-details {
+    text-align: center;
+  }
+
+  .rt-DataListRoot:where(.rt-r-orientation-horizontal)
+    :where(.rt-DataListLabel) {
+    min-width: 0 !important;
+  }
+
+  .icon-weather-forecast {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .list-weather-details {
+    margin-top: 0 !important;
+  }
+}

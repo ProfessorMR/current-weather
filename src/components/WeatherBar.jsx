@@ -21,7 +21,7 @@ export default function WeatherBar() {
         scrollbarWidth: "thin",
         scrollbarColor: "rgba(255, 255, 255, 0.3) transparent",
       }}
-      className="custom-scrollbar"
+      className="custom-scrollbar weather-bar"
     >
       <SearchBar />
       <WeatherDetails />

@@ -55,7 +55,7 @@ export default function SearchBar() {
       <Box style={{ position: "relative" }}>
         <form onSubmit={handleSubmit}>
           <TextField.Root
-            size="3"
+            size={{ initial: "2", md: "3" }}
             placeholder="Search Location..."
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}

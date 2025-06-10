@@ -9,7 +9,7 @@ const LoadingScreen = () => {
       justify="center"
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+        background: "linear-gradient(135deg,rgb(15, 22, 34) 0%,rgb(10, 17, 33) 100%)",
         color: "white",
       }}
     >
@@ -24,7 +24,7 @@ const LoadingScreen = () => {
           ease: "easeInOut",
         }}
       >
-        <Text size="6" weight="bold">
+        <Text size={{ initial: "5", md: "6" }} weight="bold">
           Loading...
         </Text>
       </motion.div>

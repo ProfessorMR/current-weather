@@ -104,6 +104,7 @@ export default function WeatherDetail() {
         borderBottom: "1px solid #fff",
         padding: "40px 0",
       }}
+      className="list-weather-details"
     >
       {weatherItems.map((item, index) => (
         <DataList.Item
@@ -117,7 +118,7 @@ export default function WeatherDetail() {
           }}
         >
           <DataList.Label style={{ color: "#eee" }}>
-            <Text size="4">{item.label}</Text>
+            <Text size={{ initial: "2", md: "4" }}>{item.label}</Text>
           </DataList.Label>
           <DataList.Value
             style={{
@@ -127,7 +128,7 @@ export default function WeatherDetail() {
               alignItems: "center",
             }}
           >
-            <Text size="4" mr="2">
+            <Text size={{ initial: "2", md: "4" }} mr="2">
               {item.value}
             </Text>
             <Icon

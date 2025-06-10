@@ -61,22 +61,32 @@ export default function MainSection() {
       justify="between"
       direction="column"
       style={{ marginBottom: "120px" }}
+      className="main-section"
     >
-      <Image src={Logo} alt="logo" width={150} />
+      <Image src={Logo} alt="logo" width={150} className="logo-page" />
       <Flex
         gapX="5"
         justify="center"
         align="center"
-        style={{ color: "var(--slate-1)" }}
+        style={{ color: "var(--slate-1)", paddingInline: "20px" }}
       >
-        <Heading style={{ fontSize: "80px" }}>
+        <Heading style={{ fontSize: "80px" }} className="temp-main-section">
           {currrentData.current.temp_c}°
         </Heading>
         <Box>
-          <Heading style={{ fontSize: "40px" }} weight="regular">
+          <Heading
+            style={{ fontSize: "40px" }}
+            weight="regular"
+            className="city-main-section"
+          >
             {currrentData.location.name}
           </Heading>
-          <Text mt="3" style={{ display: "inline-block" }} weight="regular">
+          <Text
+            mt="3"
+            className="date-main-section"
+            style={{ display: "inline-block" }}
+            weight="regular"
+          >
             {new Date(currrentData.location.localtime).toLocaleString()}
           </Text>
         </Box>
