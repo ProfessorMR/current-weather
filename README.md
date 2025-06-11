@@ -56,6 +56,6 @@ Project Link: [currentWeather](https://github.com/ProfessorMR/current-weather.gi
 
 I would like to give credit to the original UI design that inspired this project:
 
-- [Original Design on templatemonster](https://weather-web-9uot.onrender.com/)
+- [Original Design](https://weather-web-9uot.onrender.com/)
 
 Thank you for your amazing design and inspiration!
